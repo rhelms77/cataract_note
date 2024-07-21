@@ -1,0 +1,102 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+* { /* all element selector */
+    box-sizing: border-box; /* border, within the width of the element */
+  }
+
+
+.wrapper2 {
+    display: grid;
+    grid-gap: .2em; 
+}
+.wrapper2 [type=text] {
+    /* display: block; */
+    width: 100%
+  }   
+
+
+body,
+button,
+input {
+    font-size: 9pt;
+}
+
+span {
+    color: blue;
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.left p {
+    clear: left;
+    margin: 0;
+    padding: 0;
+}
+
+.left p, .left .box {
+    margin-top: .2em;
+}
+
+.right p {
+    clear: left;
+    padding: 0;
+}
+
+
+.field {
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.right {
+    border: 1px solid gray;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 22em 1fr;
+}
+
+.right,
+.left {
+    padding: 1ex;
+    box-sizing: border-box;
+}
+
+.color_box {
+    float: left;
+    clear: both;
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+select {
+    font-size: 8pt;
+}
+
+input[type=text] {
+    font-size: 8pt;
+    box-sizing: border-box;
+}
+
+.box {
+    /* float: left; */
+    /* padding: .1em 0.25em 0 0em; */
+}
