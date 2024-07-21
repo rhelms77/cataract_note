@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E96Z8HPF4R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E96Z8HPF4R');
+    </script>
+
+    <meta charset=utf-8>
+    <title>Cataract dictation generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cataract.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="cataract.js"></script>
+
+</head>
+
+<body">
+    <div class="wrapper">
+        <div class="left">
+            <h2>Cataract Note Generator</h2>
+            <p style="color:red; font-weight: bold;">Please let me know if you're still using this. Otherwise I'm going to take it down in a few weeks.</p>
+            <form id="myform">
+                <div class="color_box" style="background:#eed;">
+                    <h3>Case</h3>
+                    <div class="box">Date <input type="text" id="input_date" style="width: 6em;">
+                        <button type="button" id="button_today">Today</button></div>
+                    <p>Patient Name <input type="text" id="input_name" class='erase'></p>
+                    <p>Eye:
+                        <input type="radio" name="rb_eye" id="input_od" value="od">OD
+                        <input type="radio" name="rb_eye" id="input_os" value="os">OS
+                    </p>
+
+                    <div class="wrapper2" style="grid-template-columns: repeat(3, 1fr);">
+                        <select id="input_attending">
+                            <option selected disabled>Attending</option>
+                            <option value="Natalie Cheung, MD">Cheung</option>
+                            <option value="K. Anne Jacobs, MD">Jacobs</option>
+                            <option value="Manasvee Kapadia, MD">Kapadia</option>
+                            <option value="Philip Shands, MD">Shands</option>
+                        </select>
+                        <select id="input_resident">
+                            <option selected disabled>Resident</option>
+                            <option value="Lars Andersen, MD">Andersen</option>
+                            <option value="Tsun-Kang Chiang, MD">Chiang</option>
+                            <option value="Natasha Kesav, MD">Kesav</option>
+                            <option value="Christian Kim, MD">Kim</option>
+                            <option value="Amy Kloosterboer, MD">Kloosterboer</option>
+                            <option value="Samantha Paul, MD">Paul</option>
+                            <option value="Valencia Potter, MD">Potter</option>
+                            <option value="Chandruganesh Rasendran, MD">Rasendran</option>
+                            <option value="Jaskirat Takhar, MD">Takhar</option>
+                            <option value="Kayla White, MD">White</option>
+                            <option value="LeAnne Young, MD">Young</option>
+                            <option value="Renato Yui Yupari, MD">Yupari</option>
+                        </select>
+                        <select id="input_assistant">
+                            <option selected disabled>Assistant</option>
+                            <option value="None">None</option>
+                            <option value="Lars Andersen, MD">Andersen</option>
+                            <option value="Tsun-Kang Chiang, MD">Chiang</option>
+                            <option value="Natasha Kesav, MD">Kesav</option>
+                            <option value="Christian Kim, MD">Kim</option>
+                            <option value="Amy Kloosterboer, MD">Kloosterboer</option>
+                            <option value="Samantha Paul, MD">Paul</option>
+                            <option value="Valencia Potter, MD">Potter</option>
+                            <option value="Chandruganesh Rasendran, MD">Rasendran</option>
+                            <option value="Jaskirat Takhar, MD">Takhar</option>
+                            <option value="Kayla White, MD">White</option>
+                            <option value="LeAnne Young, MD">Young</option>
+                            <option value="Renato Yui Yupari, MD">Yupari</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="color_box" style="background:#dee;">
+                    <h3>Implant</h3>
+                    <p>Type<br><input type="text" id="input_lens_type" class='erase' style="width: 100%" value="Alcon "></p>
+                    <div class="wrapper2" style="grid-template-columns: 3.5fr 2fr 1fr;">
+                        <div class="box">Serial<br><input type="text" id="input_lens_sn" class='erase'></div>
+                        <div class="box">Exp<br><input type="text" id="input_lens_exp" class='erase'></div>
+                        <div class="box">Axis<br><input type="text" id="input_lens_axis" class='erase'></div>
+                    </div>
+                </div>
+
+                <div class="color_box" style="background:#edd;">
+                    <h3>Procedure</h3>
+                    <p>Wound
+                        <input type="radio" name="input_wound_size" id="input_24" value="2.4" checked>2.4
+                        <input type="radio" name="input_wound_size" id="input_275" value="2.75">2.75
+                    </p>
+                    <p>Phaco Technique
+                        <select id="input_technique">
+                            <option selected value="divide-and-conquer">divide-and-conquer</option>
+                            <option value="horizontal-chop">horizontal-chop</option>
+                            <option value="vertical-chop">vertical-chop</option>
+                            <option value="stop-and-chop">stop-and-chop</option>
+                        </select>
+                    </p>
+                    
+                    <div class="wrapper2" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;">
+                        <div class="box">EPT<br><input type="text" id="input_ept" class='erase'></div>
+                        <div class="box">APT<br><input type="text" id="input_apt" class='erase'></div>
+                        <div class="box">Avg<br><input type="text" id="input_usavg" class='erase'></div>
+                        <div class="box">Irr<br><input type="text" id="input_irrigation" class='erase'></div>
+                        <div class="box">Time<br><input type="text" id="input_case_time" class='erase'></div>
+                        <div class="box">EBL<br><input type="text" id="input_ebl" value="0" class='erase'></div>
+                    </div>
+                </div>
+
+                <div class="color_box" style="background:#D9F8C4;">
+                    <h3>Extras</h3>
+                    <p><label for="cb_block"><input type="checkbox" id="cb_block" name="cb_block">Retrobulbar block</label></p>
+                    <p><label for="cb_blue"><input type="checkbox" id="cb_blue" name="cb_blue">Trypan blue</label>
+                    <label for="cb_viscoat"><input type="checkbox" id="cb_viscoat" name="cb_viscoar">Viscoat </label></p>
+                    <p><label for="cb_istent"><input type="checkbox" id="cb_istent" name="cb_istent">iStent</label></p>
+                    <p><label for="cb_lasik"><input type="checkbox" id="cb_lasik" name="cb_lasik">History of LASIK</label></p>
+
+                    <p>Ring:
+                        <input type="radio" name="ring" id="input_ring_none" value="none" checked>None
+                        <input type="radio" name="ring" id="input_ring_625" value="6.25 mm">6.25
+                        <input type="radio" name="ring" id="input_ring_700" value="7.00 mm">7.00
+                    </p>
+                </div>
+
+                <div class="color_box" style="background:#bbb;">
+                    <h3>Injections</h3>
+                    <div class="wrapper2" style="grid-template-columns: auto auto 4em auto; text-align: right;">
+                        <div></div>
+                        <div style="text-align: left;">Lot</div>
+                        <div style="text-align: left;">Exp</div>
+                        <div style="text-align: left;">Dose</div>
+                        <div>Moxi</div>
+                        <div><input type="text" id="input_moxi_lot"></div>
+                        <div><input type="text" id="input_moxi_exp"></div>
+                        <div><input type="text" id="input_moxi_dose" value="0.5 mg"></div>
+                        <div>Kenalog</div>
+                        <div><input type="text" id="input_kenalog_lot"></div>
+                        <div><input type="text" id="input_kenalog_exp"></div>
+                        <div><input type="text" id="input_kenalog_dose" value="6 mg"></div>
+                    </div>
+                </div>
+
+                <div class="color_box" style="background:#cac;">
+                    <h3>Post-Op Drops</h3>
+                    <div class="wrapper2" style="grid-template-columns: repeat(2, 1fr)">
+                        <div><label for="cb_po_pred"><input type="checkbox" id="cb_po_pred" name="drops">Prednisolone</label></div>
+                        <div><label for="cb_po_diclo"><input type="checkbox" id="cb_po_diclo" name="drops">Diclofenac</label></div>
+                        <div><label for="cb_po_moxi"><input type="checkbox" id="cb_po_moxi" name="drops">Vigamox</label></div>
+                        <div><label for="cb_po_polytrim"><input type="checkbox" id="cb_po_polytrim" name="drops">Polytrim</label></div>
+                    </div>
+                </div>
+
+                <div class="color_box" style="">
+                    <p><button type="button" Value="Update" id="button_update">Update</button>
+                        <button type="button" id="button_copy">Update & Copy</button>
+                    </p>
+                    <p><button type="button" id="button_reset_some">Reset Some</button>
+                        <button type="button" id="button_reset_all">Reset All</button>
+                    </p>
+                    <p>Reset Some retains date, personnel, etc. Useful for entering multiple cases.</p>
+                </div>
+            </form>
+        </div>
+        <div id="note" class="right">
+            <h2>OPERATIVE REPORT</h2>
+
+            <p><b>DATE OF PROCEDURE:</b> <span class="text_date"></span></p>
+
+            <p><b>PATIENT NAME:</b> <span class="text_name"></span></p>
+
+            
+            <p>
+                <b>PREOPERATIVE DIAGNOSIS:</b>
+                Visually significant combined cataract
+                <span class="toric_text field">with regular astigmatism</span>
+                <span class="istent_text field">and glaucoma</span>
+                of the <span class="eye_class field"></span> eye.
+            </p>
+
+            <p><b>POSTOPERATIVE DIAGNOSIS:</b> same</p>
+
+            <p><b>PROCEDURE:</b> <span class="text_complex field">Complex </span>Phacoemulsification with insertion of <span class="toric_text field">Toric</span> intraocular lens <span class="eye_class field"></span> eye</p>
+
+            <p><b>ATTENDING SURGEON:</b> <span class="text_attending field"></span></p>
+
+            <p><b>RESIDENT SURGEON:</b> <span class="text_resident field"></span></p>
+
+            <p><b>ASSISTANT SURGEON:</b> <span class="text_assistant field"></span></p>
+
+            <p><b>ANESTHESIA:</b> Topical anesthesia with monitored anesthesia care</p>
+
+            <p><b>INDICATIONS FOR PROCEDURE:</b> Patient has a history of visually significant 
+                cataract <span class="eye_class field"></span> eye, who presented to the eye clinic with blurry vision
+                in the <span class="eye_class field"></span> eye. The risks, benefits and alternatives to cataract surgery were
+                thoroughly discussed with the patient and he elected to proceed with cataract surgery in the <span class="eye_class field"></span> eye.</p>
+
+            <p><b>OPERATIVE FINDINGS:</b> Cataract in the <span class="eye_class field">???</span> eye.
+                                          <span class="toric_text field">Toric </span>PCIOL in the bag
+                                          <span class="toric_text field">aligned at <span class="toric_axis field"></span> degrees</span>.
+            </p>
+
+            <p><b>COMPLICATIONS:</b> None</p>
+
+            <p><b>DETAILS OF THE PROCEDURE:</b><br> Patient <span class="text_name field">???</span> was correctly identified.
+
+                <span class="toric_text field">The principal meridians of the cornea were marked while sitting upright.</span>
+            </p>
+
+            <p>The patient was brought to the operating room at which point he was given sedation per anesthesia.
+                A complete time-out was performed.</p>
+
+            <p class="block_text field">Patient was given sedation and retrobulbar block was administered consisting of 50:50 lidocaine and Marcaine and 0.1cc of vitrase.</p>
+
+            <p>Topical tetracaine, 5% betadine, and viscous lidocaine were instilled in the <span class="eye_class field">???</span> eye.
+                The patient was prepped and draped in the usual sterile ophthalmic fashion.
+                A lid speculum was placed in the <span class="eye_class field">???</span> eye.</p>
+
+            <p>A temporal paracentesis wound was created at <span class="text_para_location field">???</span> using an MVR blade and 0.12 forceps.
+                OMIDRIA and epinephrine/lidocaine were injected into the anterior chamber.</p>
+
+            <p class="blue_text field">Trypan blue was injected into the anterior chamber under an air bubble and irrigated with BSS.</p>
+
+            <p>The anterior chamber was filled with Amvisc and a temporal clear corneal wound was created using a <span class="text_wound_size field">???</span> keratome blade with 0.12 mm forceps for stabilization.</p>
+
+            <p class="ring_text field">A <span class="text_ring_size field">???</span> Malyugin ring was placed for pupillary expansion.</p>
+
+            <p>A continuous curvilinear capsulorrhexis was performed using a combination of a cystotome needle and Utrata forceps.
+                Gentle hydrodissection and was performed using balanced salt solution on a blunt tipped cannula.</p>
+
+            <p class="viscoat_text field">Viscoat was injected into the anterior chamber to protect the cornea.</p>
+            
+            <p>The lens was removed using phacoemulsification power with the <span class="text_technique field">???</span> technique.
+                The cortical material was removed using irrigation and aspiration.
+                The capsular bag was filled with Healon viscoelastic.</p>
+
+            <p>The lens implant was confirmed as an <span class="text_lens_type field">???</span> posterior chamber lens (SN <span class="text_lens_sn field">???</span>, EXP <span class="text_lens_exp field">???</span>).
+                The lens was injected into the capsular bag and rotated into the appropriate position with a Lester hook.
+                <span class="toric_text field">The lens axis was noted to be <span class="toric_axis field">???</span> degrees.</span>
+            </p>
+
+            <p class="istent_text field">
+                The scope was repositioned for view with gonioscopy prism and patient's head was turned.
+                OVD was injected to better visualize the angle.
+                iStent procedure was performed with placement of two iStents two clock hours apart in the nasal angle at the level of the trabecular meshwork.
+                Glaukos iStent Inject W serial # __________ expiration __________.
+                After insertion, a plume of blood was visualized through the snorkel indicating placement in Schlemm's canal.
+                After clearing away the blood with additional viscoelastic, the iStents were noted to be inserted with the flange flush with the TM.
+            </p>
+
+            <p class="ring_text field">The Malyugin ring was then removed from the eye.</p>
+
+            <p>The remaining Healon was removed using irrigation and aspiration.
+                The anterior chamber was filled with balanced salt solution and the wounds were hydrated.
+                Moxifloxicin (<span class="text_moxi_dose field">???</span>, lot <span class="text_moxi_lot field">???</span>, exp. <span class="text_moxi_exp field">???</span>) was injected.
+                At this point the incisions were found to be watertight and the intraocular pressure was normal.
+                Triamcinolone (<span class="text_kenalog_dose field">???</span>, lot <span class="text_kenalog_lot field">???</span>, exp. <span class="text_kenalog_exp field">???</span>) was injected into the infratemporal sub-tenon's space.
+                The drapes and speculum were removed from the eye and the Betadine solution was washed from the skin with sterile saline.
+                A drop of brimonidine, diclofenac, and prednisolone was placed in the eye, <span class="block_text field">ointment was applied</span> and the eye was <span class="block_text field">patched and</span> shielded.</p>
+
+            <p>The patient tolerated the surgery well, and he transferred to the PACU in satisfactory condition. The attending was present for the entire procedure.</p>
+
+            <p>
+                The patient was instructed to follow-up in the eye clinic as scheduled.
+                <span class="text_drops field"></span>
+                <span class="text_po_pred field"><br>Prednisolone acetate 1%, taper weekly QID/TID/BID/daily/stop.</span>
+                <span class="text_po_diclo field"><br>Diclofenac, QID until out.</span>
+                <span class="text_po_moxi field"><br>Moxifloxacin, QID for 1 week then stop.</span>
+                <span class="text_po_polytrim field"><br>Polytrim</span>
+            </p>
+
+            <p class="lasik_text field">Patient has history of LASIK. Please obtain ARx at post-op week 1.</p>
+
+
+            <p>Surgical Time: <span class="text_case_time field"></span> minutes<br>
+                EPT: <span class="text_ept field"></span><br>
+                APT: <span class="text_apt field"></span><br>
+                US Avg: <span class="text_usavg field"></span>%<br>
+                Irr: <span class="text_irrigation field"></span> cc<br>
+                EBL: <span class="text_ebl field"></span> cc
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>
